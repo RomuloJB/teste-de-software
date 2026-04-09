@@ -1,6 +1,8 @@
+import { mensagens } from "../util/mensagens";
+
 export class ServicoEmprestimo{
     static autorizarEmprestimo(usuario, livro) {
-        return this.validarUsuario(usuario)
+        return this.validarUsuario(usuario) & this.validarLivro(livro);
     }
     static validarUsuario(usuario){
         if(!usuario.ativo) return false;
@@ -10,9 +12,9 @@ export class ServicoEmprestimo{
     }
 
     static validarLivro(livro){
-        if(!livro.disponivel) return false;
+        if(!livro.disponivel) throw new Error(mensagens.LIVRO_INDISPONIVEL);
         return true;
     }
 }
 
-module.exports = ServicoEmprestimo
+module.exports = { ServicoEmprestimo };

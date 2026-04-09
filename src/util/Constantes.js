@@ -1,5 +1,5 @@
-const Constantes = {
+const constantes = {
     'USUARIO_LIMITE_EMPRESTIMOS': 3,
     'USUARIO_LIMITE_MULTAS': 50
 }
-module.exports = Constantes
+module.exports = { constantes };
